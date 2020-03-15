@@ -136,6 +136,11 @@ try:
 
 		# We wait the user to solve the captcha if needed
 		wait_until_invisible(web, 'div.g-recaptcha', 'resolver el captcha')
+		
+		if "/course/draft/" in web.current_url:
+			print()
+			print("WARNING: El curso #" + str(i + 1) + " no es público o está en borrador, saltando...")
+			continue
 
 		if contains_elem(web, 'div.purchase-text'):
 			print()
